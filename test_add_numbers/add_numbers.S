@@ -12,7 +12,6 @@
   _main:
     pushl %ebp
     movl %esp, %ebp
-    movl $0, %eax # define cpuid output option
     movl $5, %eax
     movl $7, %ebx
     call add_num
