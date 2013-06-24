@@ -3,7 +3,6 @@
     .asciz "Printing a number: %d\n"
 
 .text
-  .globl add_num
   add_num:
     add %eax, %ebx
     ret
@@ -16,14 +15,13 @@
     movl $7, %ebx
     call add_num
 
-    # we are already 16 byte aligned so no
-    # need to pad the stack
-
     # push printf arguments onto the stack
     pushl %ebx
     pushl $output
 
     # now call printf
+    # we are already 16 byte aligned so no
+    # need to pad the stack
     call _printf
     leave
     ret
