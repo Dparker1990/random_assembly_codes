@@ -16,13 +16,14 @@
     movl $7, %ebx
     call add_num
 
-    # now call printf
-    # also, we are already 16 byte aligned so no
+    # we are already 16 byte aligned so no
     # need to pad the stack
 
+    # push printf arguments onto the stack
     pushl %ebx
     pushl $output
 
+    # now call printf
     call _printf
     leave
     ret
