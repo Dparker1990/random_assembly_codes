@@ -3,17 +3,27 @@
     .asciz "Printing a number: %d\n"
 
 .text
+  .globl add_num
+  add_num:
+    add %eax, %ebx
+    ret
+
   .globl _main
   _main:
+    pushl %ebp
+    movl %esp, %ebp
     movl $0, %eax # define cpuid output option
-    movl $5, %edi
+    movl $5, %eax
+    movl $7, %ebx
+    call add_num
 
     # now call printf
+    # also, we are already 16 byte aligned so no
+    # need to pad the stack
 
-    subl $0x4, %esp # padding stack for 16 byte alignment
-    pushl %edi
+    pushl %ebx
     pushl $output
 
     call _printf
-    call _exit
-    nop
+    leave
+    ret
