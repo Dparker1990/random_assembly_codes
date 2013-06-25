@@ -10,10 +10,10 @@
   .globl _main
   _main:
     pushl %ebp
-    movl %esp, %ebp
-    movl $5, %eax
-    movl $7, %ebx
-    call add_num
+    movl  %esp , %ebp
+    movl  $5   , %eax
+    movl  $7   , %ebx
+    call  add_num
 
     # push printf arguments onto the stack
     pushl %ebx
