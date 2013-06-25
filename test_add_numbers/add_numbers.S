@@ -4,6 +4,7 @@
 
 .text
   add_num:
+    # expects the arguments to be in eax and ebx
     add %eax, %ebx
     ret
 
