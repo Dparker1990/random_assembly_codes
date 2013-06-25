@@ -3,18 +3,13 @@
     .asciz "Printing a number: %d\n"
 
 .text
-  add_num:
-    # expects the arguments to be in eax and ebx
-    add %eax, %ebx
-    ret
-
   .globl _main
   _main:
     pushl %ebp
     movl  %esp , %ebp
     movl  $5   , %eax
     movl  $7   , %ebx
-    call  add_num
+    add   %eax , %ebx
 
     # push printf arguments onto the stack
     pushl %ebx
