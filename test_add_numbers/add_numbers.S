@@ -8,11 +8,10 @@
     pushl %ebp
     movl  %esp , %ebp
     movl  $5   , %eax
-    movl  $7   , %ebx
-    add   %eax , %ebx
+    add   $10 , %eax
 
     # push printf arguments onto the stack
-    pushl %ebx
+    pushl %eax
     pushl $output
 
     # now call printf
